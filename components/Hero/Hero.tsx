@@ -1,12 +1,13 @@
 import styles from "./styles.module.scss"
 import { splitAndCapitalize } from "../../utils/utils"
+import { HeroProps } from "../../utils/types"
+import React from 'react'
 
-const Hero = ({
+const Hero:React.FC<HeroProps> = ({
   isComplexSearchVisible, 
   setComplexSearchVisibility, 
-  handleChange, 
+  handleChange,
   formState, 
-  setFormState, 
   handleSearch  
 }) => {
     return (

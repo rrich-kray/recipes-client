@@ -1,8 +1,9 @@
 import styles from "./styles.module.scss";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { style } from "@mui/system";
+import { RecipeTileProps } from "../../utils/types";
 
-const RecipeTile = ({ recipe, setActiveRecipe }) => {
+const RecipeTile:React.FC<RecipeTileProps> = ({ recipe, setActiveRecipe }) => {
     return (
         <div className={styles.recipeTile}>
             <div className={styles.recipeImage}>

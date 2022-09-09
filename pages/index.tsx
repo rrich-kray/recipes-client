@@ -13,6 +13,7 @@ import RecipeAccordian from '../components/RecipeAccordian/RecipeAccordian';
 import RecipePage from '../components/RecipePage/RecipePage';
 import Hero from '../components/Hero/Hero';
 import RecipeTile from "../components/RecipeTile/RecipeTile"
+import { formState } from '../utils/types';
 import _ from "lodash"
 
 
@@ -20,11 +21,11 @@ const Home: NextPage = () => {
   const [error, setError] = useState<string>("");
   const [isLoading, setLoading] = useState<boolean>(false);
   const [recipeData, setRecipeData] = useState([]);
-  const [recipeIncrement, setRecipeIncrement] = useState([])
-  const [isComplexSearchVisible, setComplexSearchVisibility] = useState(false);
+  const [recipeIncrement, setRecipeIncrement] = useState([]);
+  const [isComplexSearchVisible, setComplexSearchVisibility] = useState<boolean>(false);
   const [activeRecipe, setActiveRecipe] = useState([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [recipesPerPage, setRecipesPerPage] = useState<number>(10)
+  const [recipesPerPage, setRecipesPerPage] = useState<number>(10);
   const [offset, setOffset] = useState<number>(0);
   const complexSearch = useRef();
 
@@ -35,7 +36,7 @@ const Home: NextPage = () => {
   // Establish an event listener that will append additional recipes to the recipes state when the user scrolls to a certain point
   // Could throw the event listener on the window object
 
-  const [formState, setFormState] = useState({
+  const [formState, setFormState] = useState<formState>({
     query: 'pork',
     cuisine: '',
     excludeCuisine: '',
