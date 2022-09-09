@@ -1,11 +1,12 @@
 import { style } from "@mui/system";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./styles.module.scss"
 import InfiniteScroll from 'react-infinite-scroller';
 import { Step } from "@mui/material";
+import { RecipePageProps } from "../../utils/types";
 
 
-const RecipePage = ({ activeRecipe, setActiveRecipe }) => {
+const RecipePage:React.FC<RecipePageProps> = ({ activeRecipe, setActiveRecipe }) => {
     const [ingredients, setIngredients] = useState([])
 
     useEffect(() => {

@@ -168,3 +168,15 @@ export interface RecipeTileProps {
     recipe:Recipe,
     setActiveRecipe: any
 }
+
+export interface RecipePageProps {
+    activeRecipe: Recipe,
+    setActiveRecipe: any
+}
+
+export interface RecipeAccordianProps {
+    recipe: Recipe,
+    setActiveRecipe: any
+}
+
+
