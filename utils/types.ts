@@ -121,7 +121,7 @@ export interface Nutrients {
     units: string
 }
 
-export interface Recipe {
+export interface RecipeInterface {
     aggregateLikes: number,
     analyzedInstructions: AnalyzedInstructions[],
     cheap: boolean,
@@ -165,17 +165,17 @@ export interface HeroProps {
 }
 
 export interface RecipeTileProps {
-    recipe:Recipe,
+    recipe: RecipeInterface,
     setActiveRecipe: any
 }
 
 export interface RecipePageProps {
-    activeRecipe: Recipe,
+    activeRecipe: RecipeInterface,
     setActiveRecipe: any
 }
 
 export interface RecipeAccordianProps {
-    recipe: Recipe,
+    recipe: RecipeInterface,
     setActiveRecipe: any
 }
 
