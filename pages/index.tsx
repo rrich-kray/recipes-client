@@ -189,7 +189,6 @@ const Home: NextPage = () => {
               handleChange={handleChange}
               handleSearch={handleSearch}
               formState={formState} 
-              setFormState={setFormState} 
             />
             {recipeData.results && (
               <div className={styles.search}>

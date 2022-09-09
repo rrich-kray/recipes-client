@@ -96,6 +96,10 @@ export interface formState {
     ranking: string
 }
 
+export interface formStateString {
+    [key: string]: string
+}
+
 export interface Ingredients {
     id: number,
     name: string, 
@@ -153,14 +157,14 @@ export interface RecipeInterface {
     vegetarian: boolean,
     veryHealthy: boolean,
     veryPopular: boolean,
-    weightWatcherSmartPoints: number 
+    weightWatcherSmartPoints: number
 }
 
 export interface HeroProps {
     isComplexSearchVisible: boolean,
     setComplexSearchVisibility: any,
     handleChange: any,
-    formState: formState,
+    formState: formStateString,
     handleSearch: any
 }
 
