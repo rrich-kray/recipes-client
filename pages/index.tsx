@@ -14,6 +14,7 @@ import RecipePage from '../components/RecipePage/RecipePage';
 import Hero from '../components/Hero/Hero';
 import RecipeTile from "../components/RecipeTile/RecipeTile"
 import { formState, RecipeInterface } from '../utils/types';
+import { SyntheticEvent } from 'react';
 import _ from "lodash"
 
 
@@ -21,9 +22,9 @@ const Home: NextPage = () => {
   const [error, setError] = useState<string>("");
   const [isLoading, setLoading] = useState<boolean>(false);
   const [recipeData, setRecipeData] = useState([]);
-  const [recipeIncrement, setRecipeIncrement] = useState([]);
+  const [recipeIncrement, setRecipeIncrement] = useState<RecipeInterface[]>([]);
   const [isComplexSearchVisible, setComplexSearchVisibility] = useState<boolean>(false);
-  const [activeRecipe, setActiveRecipe] = useState<RecipeInterface[]>([]);
+  const [activeRecipe, setActiveRecipe] = useState<RecipeInterface>();
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [recipesPerPage, setRecipesPerPage] = useState<number>(10);
   const [offset, setOffset] = useState<number>(0);
@@ -134,11 +135,7 @@ const Home: NextPage = () => {
 
   console.log(recipeData)
 
-  const handleScroll = e => {
-    console.log(e.scrollY)
-  }
-
-  const handleChange = (e) => {
+  const handleChange = (e: SyntheticEvent) => {
     const { name, value } = e.target;
     setFormState({
       ...formState,
@@ -177,34 +174,34 @@ const Home: NextPage = () => {
       <div>
         <Head>
           <title>Recipes</title>
-          <meta name="description" content="" />
+          <meta name="description" content="Recipes App" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <main className={styles.main} onScroll={handleScroll}>
-          {activeRecipe.length !== 0 ? (
+        <main className={styles.main}>
+          {activeRecipe ? (
             <RecipePage activeRecipe={activeRecipe} setActiveRecipe={setActiveRecipe} />
           ) : (
           <>
-          <Nav />
-          <Hero 
-            isComplexSearchVisible={isComplexSearchVisible}
-            setComplexSearchVisibility={setComplexSearchVisibility}
-            handleChange={handleChange}
-            handleSearch={handleSearch}
-            formState={formState} 
-            setFormState={setFormState} 
-          />
-          {recipeData.results && (
-            <div className={styles.search}>
-              {recipeData.results.map(recipe => (
-                <RecipeTile
-                  key={recipe.title}
-                  recipe={recipe}
-                  setActiveRecipe={setActiveRecipe}
-                />
-              ))}
-            </div>
-          )}
+            <Nav />
+            <Hero
+              isComplexSearchVisible={isComplexSearchVisible}
+              setComplexSearchVisibility={setComplexSearchVisibility}
+              handleChange={handleChange}
+              handleSearch={handleSearch}
+              formState={formState} 
+              setFormState={setFormState} 
+            />
+            {recipeData.results && (
+              <div className={styles.search}>
+                {recipeData.results.map(recipe => (
+                  <RecipeTile
+                    key={recipe.title}
+                    recipe={recipe}
+                    setActiveRecipe={setActiveRecipe}
+                  />
+                ))}
+              </div>
+            )}
         </>
           )}
         </main>

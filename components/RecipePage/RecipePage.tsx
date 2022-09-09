@@ -3,13 +3,14 @@ import React, { useState, useEffect } from "react";
 import styles from "./styles.module.scss"
 import { Step } from "@mui/material";
 import { RecipePageProps } from "../../utils/types";
+import { Ingredients } from "../../utils/types";
 
 
 const RecipePage:React.FC<RecipePageProps> = ({ activeRecipe, setActiveRecipe }) => {
     const [ingredients, setIngredients] = useState([])
 
     useEffect(() => {
-        const tempArr = []
+        const tempArr: Ingredients[] = []
         activeRecipe.analyzedInstructions[0].steps.map(step => {
             step.ingredients.map(ingredient => {
                 tempArr.push(ingredient)
@@ -21,9 +22,9 @@ const RecipePage:React.FC<RecipePageProps> = ({ activeRecipe, setActiveRecipe })
     return (
         <div className={styles.recipePage}>
             <div className={styles.leftPanel}>
-                <div className={styles.contentWrapper}>                    
+                <div className={styles.contentWrapper}>                
                     <div className={styles.header}>
-                        <div className={styles.backArrow} onClick={() => setActiveRecipe([])}>
+                        <div className={styles.backArrow} onClick={() => setActiveRecipe()}>
                             <img style={{maxHeight: "100%"}} src='https://www.svgrepo.com/show/19446/back-curved-arrow.svg' />
                         </div>
                         <h1 className={styles.title}>{activeRecipe.title}</h1>
@@ -111,7 +112,7 @@ const RecipePage:React.FC<RecipePageProps> = ({ activeRecipe, setActiveRecipe })
             <div className={styles.rightPanel}
             style={{
                 backgroundImage: `url(${activeRecipe.image})`,
-                backgroundSize: "cover", 
+                backgroundSize: "cover",
                 backgroundPosition: "center", 
                 backgroundRepeat: "no-repeat"
             }}></div>

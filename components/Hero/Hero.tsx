@@ -22,7 +22,7 @@ const Hero:React.FC<HeroProps> = ({
                 <button className="search-btn" onClick={handleSearch}>Search</button>
                 <button 
                   className="advanced-search-btn"
-                  onClick={() => setComplexSearchVisibility(isComplexSearchVisible => !isComplexSearchVisible)}
+                  onClick={() => setComplexSearchVisibility(!isComplexSearchVisible)}
                   >
                     Advanced Search
                   </button>
