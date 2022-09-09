@@ -1,0 +1,99 @@
+.recipeTile {
+    height: 400px;
+    width: 400px;
+    // cursor: pointer;
+    max-width: 90vw;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
+.recipeImage {
+    position: relative;
+    // display: flex;
+    // // justify-content: center;
+    // // align-items: center;
+    height: 65%;
+    width: 100%;
+    overflow: hidden;
+    transition: 0.25s ease-in;
+    border-radius: 5px 5px 0 0 ;
+    z-index: 0;
+}
+
+.recipeImage img {
+    height: 120%;
+    transition: 0.25s ease-in;
+    z-index: 1;
+    top: 0;
+    margin-top: auto;
+    left: 0;
+    margin-left: auto;
+    bottom: 0;
+    margin-bottom: auto;
+    right: 0;
+    margin-right: auto
+}
+
+.overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    z-index: 2;
+    transition: 0.25s ease-in;
+    background: rgba(100, 100, 100, 0.5);
+}
+
+.overlay button {
+    height: 30px;
+    width: 100px;
+    background: white;
+    border-radius: 5px;
+    border: 1px solid black;
+    color: black
+}
+
+.recipeInfo {
+    display: flex;
+    flex-direction: column;
+    height: 35%;
+    width: 100%;
+    padding: 10px;
+}
+
+.recipeInfo h3 {
+    margin: 10px 0 10px 0
+}
+
+.infoGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px
+}
+
+.recipeTile:hover > .recipeImage img {
+    scale: 1.025
+}
+
+.recipeTile:hover .overlay {
+    opacity: 1
+} 
+
+@media screen and (max-width: 280px) {
+    .recipeTile {
+        height: 250px;
+        width: 250px
+    }
+
+    .recipeInfo h3 {
+        font-size: .75rem
+    }
+
+    .recipeInfo span {
+        font-size: .75rem
+    }
+}

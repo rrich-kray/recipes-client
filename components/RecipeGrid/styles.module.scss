@@ -1,0 +1,80 @@
+.mainPage {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("https://rare-gallery.com/uploads/posts/585465-board-bunch.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.backgroundVideo {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+.searchContainer {
+    width: 750px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+}
+
+.searchContainer h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    animation: animate 0.5s linear
+}
+
+.searchContainer input {
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    animation: animate 0.5s linear;
+    animation-delay: 0.25s
+}
+
+.btnContainer {
+    margin-top: 10px
+}
+
+.searchContainer button {
+    margin-top: 10px;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    background: #1DA1F2;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: 0.25s linear;
+    margin: 5px
+}
+
+.searchContainer button:hover {
+    color: gold
+} 
+
+@keyframes animate {
+    0% {
+        opacity: 0;
+        transform: translateY(50%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
