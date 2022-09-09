@@ -17,15 +17,15 @@ import _ from "lodash"
 
 
 const Home: NextPage = () => {
-  const [error, setError] = useState("");
-  const [isLoading, setLoading] = useState(false);
+  const [error, setError] = useState<string>("");
+  const [isLoading, setLoading] = useState<boolean>(false);
   const [recipeData, setRecipeData] = useState([]);
   const [recipeIncrement, setRecipeIncrement] = useState([])
   const [isComplexSearchVisible, setComplexSearchVisibility] = useState(false);
   const [activeRecipe, setActiveRecipe] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [recipesPerPage, setRecipesPerPage] = useState(10)
-  const [offset, setOffset] = useState(0);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [recipesPerPage, setRecipesPerPage] = useState<number>(10)
+  const [offset, setOffset] = useState<number>(0);
   const complexSearch = useRef();
 
 
@@ -199,6 +199,7 @@ const Home: NextPage = () => {
             <div className={styles.search}>
               {recipeData.results.map(recipe => (
                 <RecipeTile
+                  key={recipe.title}
                   recipe={recipe}
                   setActiveRecipe={setActiveRecipe}
                 />

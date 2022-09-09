@@ -2,6 +2,7 @@ import { style } from "@mui/system";
 import { useState, useEffect } from "react";
 import styles from "./styles.module.scss"
 import InfiniteScroll from 'react-infinite-scroller';
+import { Step } from "@mui/material";
 
 
 const RecipePage = ({ activeRecipe, setActiveRecipe }) => {
@@ -71,7 +72,7 @@ const RecipePage = ({ activeRecipe, setActiveRecipe }) => {
                             <div className={styles.ingredients}>
                                 <h2>Ingredients</h2>
                                 {ingredients.map(ingredient => (
-                                    <span>{ingredient.localizedName}</span>
+                                    <span key={ingredient.localizedName}>{ingredient.localizedName}</span>
                                 ))}
                             </div>
                         </div>
@@ -91,7 +92,7 @@ const RecipePage = ({ activeRecipe, setActiveRecipe }) => {
                         <div className={styles.steps}>
                             <h1 className={styles.title}>Step By Step</h1>
                             {activeRecipe.analyzedInstructions[0].steps.map((step, i) => (
-                                <div className={styles.step}>
+                                <div className={styles.step} key={step.step}>
                                     <h1>Step {i+1}</h1>
                                     <p style={{color: "rgb(123, 118, 118)"}}>{step.step}</p>
                                     {/* <div className={styles.ingredients}>
