@@ -11,14 +11,14 @@ export const splitAndCapitalize = (input: string) => {
   return newArr.join(' ')
 }
 
-export const createUrl = (baseUrl, params) => {
-  baseUrl = `${baseUrl}?`
-  for (const parameter in params) {
-    if (params[parameter] !== '') {
-      Object.keys(params).indexOf(parameter) === 0
-      ? baseUrl = `${baseUrl}req=${parameter}=${params[parameter]}`
-      : baseUrl = `${baseUrl}&${parameter}=${params[parameter]}`
-    }
-  }
-  return baseUrl;
-}
+// export const createUrl = (baseUrl: string, params: object[]) => {
+//   baseUrl = `${baseUrl}?`
+//   for (const parameter in params) {
+//     if (params[parameter] !== '') {
+//       Object.keys(params).indexOf(parameter) === 0
+//       ? baseUrl = `${baseUrl}req=${parameter}=${params[parameter]}`
+//       : baseUrl = `${baseUrl}&${parameter}=${params[parameter]}`
+//     }
+//   }
+//   return baseUrl;
+// }

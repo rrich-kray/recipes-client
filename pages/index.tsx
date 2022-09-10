@@ -21,7 +21,7 @@ import _ from "lodash"
 const Home: NextPage = () => {
   const [error, setError] = useState<string>("");
   const [isLoading, setLoading] = useState<boolean>(false);
-  const [recipeData, setRecipeData] = useState([]);
+  const [recipeData, setRecipeData] = useState<RecipeInterface[]>([]);
   const [recipeIncrement, setRecipeIncrement] = useState<RecipeInterface[]>([]);
   const [isComplexSearchVisible, setComplexSearchVisibility] = useState<boolean>(false);
   const [activeRecipe, setActiveRecipe] = useState<RecipeInterface>();
@@ -136,7 +136,7 @@ const Home: NextPage = () => {
   console.log(recipeData)
 
   const handleChange = (e: SyntheticEvent) => {
-    const { name, value } = e.target;
+    const { name, value } = (e.target as HTMLInputElement);
     setFormState({
       ...formState,
       [name]: value
@@ -145,7 +145,7 @@ const Home: NextPage = () => {
 
   const handleSearch = async () => {
     const response = await axios.post(`https://uqj4m59r35.execute-api.us-east-1.amazonaws.com/prod/search`, formState);
-    setRecipeData(JSON.parse(response.data))
+    setRecipeData(JSON.parse(response.data).results)
   }
 
   useEffect(() => {
@@ -190,9 +190,9 @@ const Home: NextPage = () => {
               handleSearch={handleSearch}
               formState={formState}
             />
-            {recipeData.results && (
+            {recipeData && (
               <div className={styles.search}>
-                {recipeData.results.map(recipe => (
+                {recipeData.map(recipe => (
                   <RecipeTile
                     key={recipe.title}
                     recipe={recipe}

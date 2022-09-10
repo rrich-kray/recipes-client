@@ -102,9 +102,9 @@ export interface stringMap {
 
 export interface Ingredients {
     id: number,
+    image: string
     name: string, 
     localizedName: string,
-    image: string
 }
 
 export interface steps {
@@ -125,6 +125,10 @@ export interface Nutrients {
     units: string
 }
 
+export interface Nutrition {
+    nutrients: Nutrients[]
+}
+
 export interface RecipeInterface {
     aggregateLikes: number,
     analyzedInstructions: AnalyzedInstructions[],
@@ -142,7 +146,7 @@ export interface RecipeInterface {
     image: string,
     imageType: string,
     lowFodmap: boolean,
-    nutrition: Nutrients[],
+    nutrition: Nutrition,
     occasions: any[],
     preparationMinutes: number,
     pricePerServing: number,
