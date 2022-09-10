@@ -205,7 +205,7 @@ const Home: NextPage = () => {
           )}
         </main>
       </div>
-      {isLoading && <Loading />}
+      {/* {isLoading && <Loading />} */}
     </>
   )
 }
