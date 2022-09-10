@@ -96,7 +96,7 @@ export interface formState {
     ranking: string
 }
 
-export interface formStateString {
+export interface stringMap {
     [key: string]: string
 }
 
@@ -164,7 +164,7 @@ export interface HeroProps {
     isComplexSearchVisible: boolean,
     setComplexSearchVisibility: any,
     handleChange: any,
-    formState: formStateString,
+    formState: stringMap,
     handleSearch: any
 }
 

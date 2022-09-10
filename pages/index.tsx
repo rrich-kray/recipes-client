@@ -13,7 +13,7 @@ import RecipeAccordian from '../components/RecipeAccordian/RecipeAccordian';
 import RecipePage from '../components/RecipePage/RecipePage';
 import Hero from '../components/Hero/Hero';
 import RecipeTile from "../components/RecipeTile/RecipeTile"
-import { formState, RecipeInterface } from '../utils/types';
+import { formState, RecipeInterface, stringMap } from '../utils/types';
 import { SyntheticEvent } from 'react';
 import _ from "lodash"
 
@@ -37,7 +37,7 @@ const Home: NextPage = () => {
   // Establish an event listener that will append additional recipes to the recipes state when the user scrolls to a certain point
   // Could throw the event listener on the window object
 
-  const [formState, setFormState] = useState<formState>({
+  const [formState, setFormState] = useState<stringMap>({
     query: 'pork',
     cuisine: '',
     excludeCuisine: '',
@@ -188,7 +188,7 @@ const Home: NextPage = () => {
               setComplexSearchVisibility={setComplexSearchVisibility}
               handleChange={handleChange}
               handleSearch={handleSearch}
-              formState={formState} 
+              formState={formState}
             />
             {recipeData.results && (
               <div className={styles.search}>
