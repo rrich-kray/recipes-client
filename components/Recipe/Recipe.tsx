@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { NextPage } from 'next'
+import { RecipeProps } from '../../utils/types';
 
-const Recipe: NextPage = ({recipe}) => {
+const Recipe: NextPage<RecipeProps> = ({ recipe }) => {
     return (
         <>
             <div className="recipe" >

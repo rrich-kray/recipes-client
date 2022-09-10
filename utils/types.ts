@@ -183,4 +183,6 @@ export interface RecipeAccordianProps {
     setActiveRecipe: any
 }
 
-
+export interface RecipeProps {
+    recipe: RecipeInterface
+}
