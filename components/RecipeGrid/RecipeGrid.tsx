@@ -1,8 +1,9 @@
 import { NextPage } from "next";
 import Head from "next/head"
 import styles from "./styles.module.scss"
+import { SimpleSearchProps } from "../../utils/types";
 
-const SimpleSearch: NextPage = ({handleChange, setComplexSearchVisibility}) => {
+const SimpleSearch: NextPage<SimpleSearchProps> = ({handleChange, setComplexSearchVisibility}) => {
     return (
     <>
         <Head>

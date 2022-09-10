@@ -186,3 +186,8 @@ export interface RecipeAccordianProps {
 export interface RecipeProps {
     recipe: RecipeInterface
 }
+
+export interface SimpleSearchProps {
+    handleChange: any,
+    setComplexSearchVisibility: any
+}
